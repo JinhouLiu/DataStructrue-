@@ -1,0 +1,56 @@
+#include<stdio.h>
+
+#include"SeqList.h"
+
+void main()
+{
+
+SeqList  myList;   
+
+int i, x;
+
+ListInitiate(&myList);
+
+for(i=0;i<10;i++)
+{
+
+if(ListInsert(&myList,i,i+1)==0)
+{
+
+printf("错误！ \n");
+
+return;
+
+}
+  
+}
+
+
+if(ListDelete(&myList,4,&x)==0)
+{
+
+
+printf("错误!\n");
+
+
+return;
+
+
+}
+
+
+for(i=0;i<ListLength(myList);i++)
+{
+
+
+if(ListGet(myList,i,&x)==0)
+{
+printf("错误!\n");
+return;
+}
+
+else   printf("%d\n",x);
+
+}
+
+}   
