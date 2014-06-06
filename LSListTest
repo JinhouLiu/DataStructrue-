@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include"LSList.h"
+int main(void)
+{
+LSNode *head;
+int i,x;
+ListInitiate(&head);
+for(i=0;i<10;i++)
+{
+if(ListInsert(head,i,i+1)==0)
+{
+printf("插入出现错误");
+return;
+}
+}
+if(ListDelete(head,4,&x)==0)
+{
+printf("删除出现错误!");
+return;
+}
+for(i=0;i<ListLength(head);i++)
+{
+if(ListGet(head,i,&x)==0)
+{
+printf("取元素出现错误!");
+return;
+}
+else printf("%d\n",x);
+}
+Destory(&head);
+}
