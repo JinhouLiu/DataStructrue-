@@ -1,0 +1,66 @@
+#include<stdio.h>
+#define MaxSize 100
+typedef int DataType;
+/*
+*定义堆栈数据结构
+*/
+typedef struct Node
+{
+DataType stack[MaxSize];
+int top;
+}SeqStack;
+/*
+*堆栈初始化
+*/
+void StackInitiate(SeqStack *S)
+{
+S->top=0;
+}
+/*
+*判断堆栈是否为空
+*0代表为空１代表不为空
+*/
+int StackEmpty(SeqStack S)
+{
+if(S.top<=0)
+return 0;
+else
+return 1;
+}
+/*
+*向堆栈顶部插入元素
+*０代表插入失败，１代表插入成功
+*/
+int StackPush(SeqStack *S,DataType x)
+{
+if(S->top>=MaxSize)
+{
+printf("堆栈已满不能插入");
+return 0;
+}
+else
+{
+S->stack[S->top]=x;
+S->top++;
+return 1;
+}
+}
+/*
+*
+*删除栈顶元素，被删除的栈顶元素存储在x中
+*0代表删除失败，１代表删除成功
+*
+*/
+int StackPop(SeqStack *S,DataType *x)
+{
+if(S->top<=0)
+{
+printf("堆栈以空无法删除!");
+return 0;
+}
+S->top--;
+*x=S->stack[S->top];
+return 1;
+}
+/*
+*
